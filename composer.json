@@ -1,0 +1,22 @@
+{
+    "name": "tomsihap/wf3-490-mvc",
+    "authors": [
+        {
+            "name": "Thomas Sihapanya",
+            "email": "sihapanya.thomas@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Controller\\": "controllers/",
+            "Model\\": "models/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    }
+}
