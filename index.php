@@ -1,21 +1,27 @@
 <?php
 
+use App\Controller\AnimalController;
+
 use Bramus\Router\Router;
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/config/config.php';
+//require __DIR__ . '/config/config.php';
 
-$router = new Router;
+$router = new Router();
+$router->setNamespace('App\Controller');
 
-
-$router->get('/accueil', function() {
-    echo "Hello world !";
+$router->get('/about', function() {
+    echo "bienvenue sur la page About!";
 });
 
-$router->get('/articles', function () {
-    include __DIR__ . '/affichage.php';
+$router->get('/contact', function () {
+    echo "Page contactez-nous.";
 });
 
-$router->get('/animaux', AnimalController::list());
+$router->get('/redirect', function () {
+    header('Location: about');
+});
+
+$router->get('/animaux', 'AnimalController@index');
 
 $router->run();
