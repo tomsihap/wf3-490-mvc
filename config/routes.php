@@ -5,6 +5,8 @@ use Bramus\Router\Router;
 $router = new Router();
 $router->setNamespace('App\Controller');
 
+$router->get('/', 'AppController@index');
+
 $router->get('/animal', 'AnimalController@index');
 $router->get('/animal/(\d+)', 'AnimalController@show');
 $router->get('/animal/create', 'AnimalController@create');
