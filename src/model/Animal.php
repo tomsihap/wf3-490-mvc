@@ -105,6 +105,26 @@ class Animal extends AbstractModel {
         return $dataAsObjects;
     }
 
+
+    /**
+     * Récupère un animal par son id
+     */
+    public static function findOne($id) {
+        $pdo = self::getPdo();
+
+        $query = 'SELECT * FROM Animal WHERE id = :id';
+
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'id' => $id,
+        ]);
+
+        $data = $response->fetch();
+
+        $dataAsObject = self::toObject($data);
+
+        return $dataAsObject;
+    }
     /**
      * Transforme un array de données de la table Animal en un objet Animal
      */

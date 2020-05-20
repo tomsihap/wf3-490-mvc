@@ -14,8 +14,11 @@ class AnimalController extends AbstractController {
     }
 
     public static function show($id) {
+
+        $animal = Animal::findOne($id);
+
         echo self::getTwig()->render('animal/show.html', [
-            'idanimal' => $id
+            'animal' => $animal
         ]);
     }
 

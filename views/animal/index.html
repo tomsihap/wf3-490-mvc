@@ -10,7 +10,12 @@
     <h1>Liste des animaux</h1>
 
     {% for animal in animaux %}
-        <div class="alert alert-secondary">{{ animal.species }} (origine: {{ animal.country }})</div>
+        <div class="alert alert-secondary">
+            
+            <a href="{{ base_path ~ '/animal/' ~ animal.id }}">
+                {{ animal.species }} (origine: {{ animal.country }})
+            </a>
+        </div>
     {% endfor %}
 
 {% endblock %}

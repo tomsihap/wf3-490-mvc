@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Bienvenue sur la page de l'animal dont l'ID est {{ idanimal }}.</h1>
+    <h1>Bienvenue sur la page de l'animal dont l'ID est {{ animal.id }}.</h1>
+    <h2>Espece: {{animal.species}}</h2>
+    <h2>Pays: {{animal.country}}</h2>
 {% endblock %}
