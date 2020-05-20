@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-class ZooController {
+class ZooController extends AbstractController {
     public static function index()
     {
+        echo self::getTwig()->render('zoo/index.html');
     }
 
     public static function show($id)
@@ -13,10 +14,12 @@ class ZooController {
 
     public static function create()
     {
+        echo self::getTwig()->render('zoo/create.html');
     }
 
     public static function new()
     {
+        var_dump($_POST);
     }
 
     public static function edit($id)

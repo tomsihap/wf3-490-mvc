@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Model;
+
+use PDO;
+
 class Animal {
 
     /**
@@ -78,5 +81,9 @@ class Animal {
     {
         $this->country = $country;
         return $this;
+    }
+
+    public static function findAll() {
+        $pdo = new PDO('');
     }
 }

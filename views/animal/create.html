@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="">
 
-        <div class="form-group">
-            <label for="">Espèce de l'animal :</label>
-            <input type="text" class="form-control" placeholder="Lion">
-        </div>
+<a href="{{ base_path ~ '/animal'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste des animaux</a>
 
-    </form>
+<h1>Créer un animal :</h1>
+
+<form action="{{ base_path ~ '/animal'}}" method="post">
+
+    <div class="form-group">
+        <label for="">Espèce de l'animal: </label>
+        <input type="text" class="form-control" placeholder="Éléphant" name="species">
+    </div>
+
+    <div class="form-group">
+        <label for="">Pays d'origine : </label>
+        <input type="text" class="form-control" placeholder="Thailande" name="country">
+    </div>
+
+    <button class="btn btn-success">Créer un animal</button>
+
+</form>
 {% endblock %}

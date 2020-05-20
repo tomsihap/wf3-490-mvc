@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Bienvenue sur la liste des animaux</h1>
+
+    <a href="{{ base_path }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la page d'accueil</a>
+    <br>
+    <a class="btn btn-primary" href="{{ base_path ~ '/animal/create' }}">Créer un animal</a>
+
+
+    <h1>Liste des animaux</h1>
+
+    <div class="alert alert-secondary">Tigre (origine: Birmanie)</div>
+    <div class="alert alert-secondary">Lion (origine: Danemark)</div>
+    <div class="alert alert-secondary">Gazelle (origine: Israel)</div>
+    <div class="alert alert-secondary">Lynx (origine: Roumanie)</div>
+    <div class="alert alert-secondary">Éléphant (origine: Thaïlande)</div>
+
 {% endblock %}

@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Bienvenue sur la page d'accueil.</h1>
+<h1>Bienvenue sur l'interface de gestion WF3 Zoo</h1>
+
+<div class="jumbotron">
+    <a href="{{ base_path ~ '/animal'}}" class="btn btn-primary">Consulter la liste des animaux</a>
+    <a href="{{ base_path ~ '/zoo'}}" class="btn btn-primary">Consulter la liste des zoos</a>
+</div>
+
 {% endblock %}

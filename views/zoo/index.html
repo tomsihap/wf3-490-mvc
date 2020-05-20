@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{{ base_path }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la page d'accueil</a>
+
+<br>
+
+<a class="btn btn-primary" href="{{ base_path ~ '/zoo/create' }}">Créer un zoo</a>
+
+<h1>Liste des zoos</h1>
+
+<div class="alert alert-secondary">Alexandria Zoo (lieu: Alexandria)</div>
+<div class="alert alert-secondary">Tsimbazaza Zoo (lieu: Antananarivo)</div>
+<div class="alert alert-secondary">Seoul Grand Park Zoo (lieu: (Gwacheon)</div>
+<div class="alert alert-secondary">Chiang Mai Zoo (lieu: Chiang Mai)</div>
+<div class="alert alert-secondary">Parc de la tête d'or (lieu: Lyon)</div>
+
+{% endblock %}
