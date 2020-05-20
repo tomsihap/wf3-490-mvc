@@ -6,7 +6,11 @@ use App\Model\Animal;
 class AnimalController extends AbstractController {
 
     public static function index() {
-        echo self::getTwig()->render('animal/index.html');
+        $animaux = Animal::findAll();
+
+        echo self::getTwig()->render('animal/index.html', [
+            'animaux' => $animaux
+        ]);
     }
 
     public static function show($id) {
@@ -20,7 +24,12 @@ class AnimalController extends AbstractController {
     }
 
     public static function new() {
-        var_dump($_POST);
+        $animal = new Animal;
+        $animal->setCountry($_POST['country']);
+        $animal->setSpecies($_POST['species']);
+        $animal->store();
+
+        self::index();
     }
 
     public static function edit($id) {

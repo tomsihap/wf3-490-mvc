@@ -4,7 +4,7 @@ namespace App\Model;
 
 use PDO;
 
-class Animal {
+class Animal extends AbstractModel {
 
     /**
      * @var int
@@ -84,6 +84,55 @@ class Animal {
     }
 
     public static function findAll() {
-        $pdo = new PDO('');
+        $pdo = self::getPdo();
+
+        $query = 'select * from animal';
+
+        $response = $pdo->prepare($query);
+        $response->execute();
+
+        $data = $response->fetchAll();
+
+        // On prépare le tableau qui contiendra nos animaux en format Object
+        $dataAsObjects = [];
+
+        // On fait un foreach de $data (données de la bdd) pour transformer chaque data en un object
+        // puis on met l'object dans le tableau $dataAsObjects
+        foreach($data as $d) {
+            $dataAsObjects[] = self::toObject($d);
+        }
+
+        return $dataAsObjects;
+    }
+
+    /**
+     * Transforme un array de données de la table Animal en un objet Animal
+     */
+    public static function toObject($array) {
+
+        $animal = new Animal;
+        $animal->setId($array['id']);
+        $animal->setSpecies($array['species']);
+        $animal->setCountry($array['country']);
+
+        return $animal;
+    }
+
+    /**
+     * Enregistre l'objet lui-même en base de données
+     */
+    public function store() {
+
+        $pdo = self::getPdo();
+
+        $query = 'INSERT INTO animal(species, country) VALUES (:species, :country)';
+
+        $response = $pdo->prepare($query);
+        $response->execute([
+            'species' => $this->getSpecies(),
+            'country' => $this->getCountry()
+        ]);
+
+        return true;
     }
 }

@@ -10,10 +10,8 @@
 
 <h1>Liste des zoos</h1>
 
-<div class="alert alert-secondary">Alexandria Zoo (lieu: Alexandria)</div>
-<div class="alert alert-secondary">Tsimbazaza Zoo (lieu: Antananarivo)</div>
-<div class="alert alert-secondary">Seoul Grand Park Zoo (lieu: (Gwacheon)</div>
-<div class="alert alert-secondary">Chiang Mai Zoo (lieu: Chiang Mai)</div>
-<div class="alert alert-secondary">Parc de la tête d'or (lieu: Lyon)</div>
+    {% for zoo in zoos %}
+        <div class="alert alert-secondary">{{zoo.name}} (lieu: {{zoo.city}})</div>
+    {% endfor %}
 
 {% endblock %}
