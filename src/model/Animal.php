@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-use PDO;
 
 class Animal extends AbstractModel {
 
